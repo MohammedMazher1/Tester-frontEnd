@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Question</title>
+  </head>
+  <body>
+    <h1>Create Question</h1>
+
+    <form action="/" method="post">
+      <label for="question">Question:</label><br>
+      <input type="text" id="question" name="question"><br><br>
+
+      <label for="answer">Answers:</label><br>
+      <input type="text" name="answer"><br>
+      <input type="text" name="answer"><br>
+      <input type="text" name="answer"><br>
+      <!-- Allow users to add more answers -->
+      <input type="button" value="Add Answer" onclick="addAnswerField()"><br><br>
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <h2>Existing Questions:</h2>
+    <ul>
+      {% for question in questions %}
+        <li>
+          <strong>{{ question.question }}</strong><br>
+          Answers:
+          <ul>
+            {% for answer in question.answers %}
+              <li>{{ answer }}</li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <script>
+      function addAnswerField() {
+        var input = document.createElement("input");
+        input.setAttribute("type", "text");
+        input.setAttribute("name", "answer");
+        
+        var form = document.getElementsByTagName("form")[0];
+        form.insertBefore(input, form.lastElementChild.previousElementSibling);
+      }
+    </script>
+  </body>
+</html>
