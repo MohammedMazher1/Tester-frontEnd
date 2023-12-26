@@ -1,0 +1,42 @@
+/* start header style */
+.header nav{
+    height: 60px;
+    color: var(--gold-color);
+    cursor: pointer;
+}
+.header nav i {
+    opacity: 0.5;
+    font-size: 20px;
+    cursor: pointer;
+}
+.header nav i:first-child{
+    font-size: 25px;
+}
+.header nav i:hover{
+    opacity: 1;
+}
+.header nav > div{
+    width: 300px;
+}
+.header nav .links{
+    display: flex;
+    gap: 20px;
+}
+.header nav .links > div{
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+}
+.header nav .links > div:last-child{
+    border:1px solid var(--white-color)
+}
+.header nav .links > div:last-child:hover{
+    background-color: var(--gold-color);
+    color: var(--white-color);
+}
+.header nav h3{
+    text-decoration: underline;
+    text-align: center;
+}
+/* end header style */
