@@ -38,22 +38,22 @@
       <section class="questions" dir="ltr">
         <div class="back"></div>
         <div class="question" >
-          <input type="text" placeholder="اكتب سوالك هنا ..." name="q" value="">
+          <input type="text" class="questionInput" placeholder="اكتب سوالك هنا ..." name="q" value="">
           <ul>
             <li>
-              <label for="q1-firstOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q1-firstOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q1-firstOption" name="q1-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q1-secondOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q1-secondOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q1-secondOption" name="q1-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q1-thirdOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q1-thirdOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q1-thirdOption" name="q1-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q1-fourthOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q1-fourthOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q1-fourthOption" name="q1-firstOption" value="HTML">
             </li>
           </ul>
@@ -63,22 +63,22 @@
           </div>
         </div>
         <div class="question" >
-          <input type="text" placeholder="اكتب سوالك هنا ..." name="q" value="">
+          <input type="text" class="questionInput" placeholder="اكتب سوالك هنا ..." name="q" value="">
           <ul>
             <li>
-              <label for="q2-firstOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q2-firstOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q2-firstOption" name="q2-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q2-secondOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q2-secondOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q2-secondOption" name="q2-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q2-thirdOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q2-thirdOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q2-thirdOption" name="q2-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q2-fourthOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q2-fourthOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q2-fourthOption" name="q2-firstOption" value="HTML">
             </li>
           </ul>
@@ -88,22 +88,22 @@
           </div>
         </div>
         <div class="question" >
-          <input type="text" placeholder="اكتب سوالك هنا ..." name="q" value="">
+          <input type="text" class="questionInput" placeholder="اكتب سوالك هنا ..." name="q" value="">
           <ul>
             <li>
-              <label for="q3-firstOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q3-firstOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q3-firstOption" name="q3-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q3-secondOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q3-secondOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q3-secondOption" name="q3-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q3-thirdOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q3-thirdOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q3-thirdOption" name="q3-firstOption" value="HTML">
             </li>
             <li>
-              <label for="q3-fourthOption"><input type="text" name="optionInput" placeholder="option" value="OPTION"></label>
+              <label for="q3-fourthOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
               <input type="radio" id="q3-fourthOption" name="q3-firstOption" value="HTML">
             </li>
           </ul>
@@ -112,6 +112,7 @@
             <i class="fa-solid fa-trash"></i>
           </div>
         </div>
+        <button id="submitTest">إرسال</button>
       </section>
   </main>
   <!-- end main -->
@@ -149,5 +150,37 @@
       </div>
   </footer>
   <!-- end footer  -->
+  <script src="assets/lib/jquery-3.7.1.js"></script>
+        <script>
+         $("#submitTest").click(function() {
+              var quizArray = []; // Array to store questions and options
+
+              // Iterate through question containers
+              $(".question").each(function() {
+                  var question = $(this).find(".questionInput").val();
+                  var options = [];
+
+                  // Iterate through options within the current question container
+                  $(this).find(".optionInput").each(function() {
+                      options.push($(this).val());
+                  });
+
+                  // Create a question object and add it to the quizArray
+                  var questionObject = {
+                      question: question,
+                      options: options
+                  };
+
+                  quizArray.push(questionObject);
+              });
+
+              // Display the quiz array in the console (you can replace this with your desired logic)
+              console.log("Quiz Array:", quizArray);
+          });
+
+       /* */
+
+       /* */
+        </script>
 </body>
 </html>

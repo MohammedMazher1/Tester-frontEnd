@@ -60,11 +60,10 @@
     background-image: url(../img/logo.png);
     background-size: cover;
     opacity: 0.1;
+    z-index: 1;
     
 }
-.questions input{
-    cursor: pointer;
-}
+
 .questions .question{
     border: 1px solid var(--white-color);
     padding: 20px;
@@ -72,6 +71,7 @@
     min-width: 600px;
     position: relative;
     transition: all 0.5s ease;
+    z-index: 2;
 }
 .questions .question:hover{
     background-color: #454747;
@@ -132,4 +132,19 @@
 .questions .question > .icons i:hover{
  color: var(--gold-color);
 }
+#submitTest{
+    color: var(--gold-color);
+    padding: 5px 15px;
+    font-weight: bold;
+    display: block;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+#submitTest:hover{
+    background-color: var(--black-color);
+    border: 1px solid var(--gold-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
 /* end question style  */
