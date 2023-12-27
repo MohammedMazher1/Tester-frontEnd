@@ -180,12 +180,22 @@
               // Iterate through question containers
               $(".question").each(function() {
                   var question = $(this).find(".questionInput").val();
-                  var options = [];
+                  var options = {};
 
                   // Iterate through options within the current question container
-                  $(this).find(".optionInput").each(function() {
-                      options.push($(this).val());
+                  $(this).find(".options-list li").each(function () {
+                      var optionInput = $(this).find(".optionInput").val();
+                      if($(this).find("input[type='radio']").is(':checked')){
+                        var radioValue = 'true';
+                      }else{
+                        var radioValue = 'false';
+                      }
+                      // var radioValue = $(this).find("input[type='radio']:checked").val();
+
+                      // Add option to options object with radio button value as the key
+                      options[optionInput] =radioValue ;
                   });
+
 
                   // Create a question object and add it to the quizArray
                   var questionObject = {
@@ -205,7 +215,7 @@
               `
               <div class="question" >
                 <input type="text" class="questionInput" placeholder="اكتب سوالك هنا ..." name="q" value="">
-                <ul>
+                <ul class="options-list">
                   <li>
                     <label for="q${questionNo}-firstOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
                     <input type="radio" id="q${questionNo}-firstOption" name="q${questionNo}-firstOption" value="HTML">
@@ -223,6 +233,10 @@
                     <input type="radio" id="q${questionNo}-fourthOption" name="q${questionNo}-firstOption" value="HTML">
                   </li>
                 </ul>
+                <div class="addOptionBtn">
+                <span>اضافة خيار</span>
+                <i class="fa-solid fa-square-plus"></i>
+                </div>
                 <div class="icons">
                   <i class="fa-solid fa-up-down-left-right"></i>
                   <i class="fa-solid fa-trash"></i>
@@ -233,7 +247,7 @@
             questionNo++;
           });
           
-          $(".addOptionBtn").on("click", function() {
+          $(".questions").on("click",'.addOptionBtn', function() {
               var optionsList = $(this).prev(".options-list");
               let name = optionsList.find('li > input').attr('name');
               let labelAttr = optionsList.find('label').attr('for');

@@ -82,6 +82,7 @@
     margin: 10px;
     z-index: 5;
     font-size: 14px;
+    border-radius: 5px;
     transition: all 0.5 ease;
     cursor: pointer;
 }
