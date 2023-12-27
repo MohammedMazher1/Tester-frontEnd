@@ -138,6 +138,7 @@
     font-weight: bold;
     display: block;
     z-index: 2;
+    width: 100px;
     transition: all 0.5s ease;
 }
 #submitTest:hover{
@@ -146,5 +147,27 @@
     color: var(--white-color);
     cursor: pointer;
 }
-
 /* end question style  */
+.control{
+    background-color: var(--black-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+.control .addmore{
+    z-index: 2;
+    background-color: var(--gold-color);
+    padding: 5px 10px;
+    width: 130px;
+    border-radius: 10px 10px 0px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--white-color);
+}
+.control .addmore:hover{
+    background-color: var(--black-color);
+    border: 1px solid var(--gold-color);
+}

@@ -112,8 +112,14 @@
             <i class="fa-solid fa-trash"></i>
           </div>
         </div>
-        <button id="submitTest">إرسال</button>
       </section>
+      <div class="control">
+        <div class="addmore" id="addQuestion">
+          <span>اضافة سوال</span>
+          <i class="fa-solid fa-square-plus"></i>
+        </div>
+        <button id="submitTest">إرسال</button>
+      </div>
   </main>
   <!-- end main -->
   <!-- start footer  -->
@@ -152,6 +158,7 @@
   <!-- end footer  -->
   <script src="assets/lib/jquery-3.7.1.js"></script>
         <script>
+          let questionNo = 4;
          $("#submitTest").click(function() {
               var quizArray = []; // Array to store questions and options
 
@@ -176,6 +183,38 @@
 
               // Display the quiz array in the console (you can replace this with your desired logic)
               console.log("Quiz Array:", quizArray);
+          });
+          $("#addQuestion").click(function(){
+            $('.questions').append(
+              `
+              <div class="question" >
+                <input type="text" class="questionInput" placeholder="اكتب سوالك هنا ..." name="q" value="">
+                <ul>
+                  <li>
+                    <label for="q${questionNo}-firstOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
+                    <input type="radio" id="q${questionNo}-firstOption" name="q${questionNo}-firstOption" value="HTML">
+                  </li>
+                  <li>
+                    <label for="q${questionNo}-secondOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
+                    <input type="radio" id="q2-secondOption" name="q${questionNo}-firstOption" value="HTML">
+                  </li>
+                  <li>
+                    <label for="q${questionNo}-thirdOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
+                    <input type="radio" id="q${questionNo}-thirdOption" name="q${questionNo}-firstOption" value="HTML">
+                  </li>
+                  <li>
+                    <label for="q${questionNo}-fourthOption"><input type="text" name="optionInput" class="optionInput" placeholder="option" value="OPTION"></label>
+                    <input type="radio" id="q${questionNo}-fourthOption" name="q${questionNo}-firstOption" value="HTML">
+                  </li>
+                </ul>
+                <div class="icons">
+                  <i class="fa-solid fa-up-down-left-right"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </div>
+              </div>
+              `
+            )
+            questionNo++;
           });
 
        /* */
