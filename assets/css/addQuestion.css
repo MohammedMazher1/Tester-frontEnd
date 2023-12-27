@@ -73,6 +73,21 @@
     transition: all 0.5s ease;
     z-index: 2;
 }
+.questions .question .addOptionBtn{
+    position: absolute;
+    bottom: 0;
+    border: 1px solid var(--gold-color);
+    padding: 5px 10px;
+    right: 10px;
+    margin: 10px;
+    z-index: 5;
+    font-size: 14px;
+    transition: all 0.5 ease;
+    cursor: pointer;
+}
+.questions .question .addOptionBtn:hover{
+    background-color: var(--gold-color);
+}
 .questions .question:hover{
     background-color: #454747;
     cursor: pointer;
